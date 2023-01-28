@@ -432,32 +432,6 @@ class _CitiesSelectorPageState extends State<CitiesSelectorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.scaffoldBackgroundColor,
-      appBar: widget.useSearchAppBar
-          ? AppBar(
-              automaticallyImplyLeading: false,
-              elevation: 0,
-              backgroundColor: Theme.of(context).colorScheme.surface,
-              titleSpacing: 0,
-              title: Padding(
-                padding: EdgeInsetsDirectional.only(start: 16.0),
-                child: CupertinoSearchTextField(
-                  prefixInsets: EdgeInsetsDirectional.only(start: 6),
-                  placeholder: '输入城市名或拼音查询',
-                  onChanged: (value) {
-                    setState(() {
-                      _query = value;
-                    });
-                  },
-                ),
-              ),
-              actions: [
-                CupertinoButton(
-                  child: Text('取消'),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
-            )
-          : _buildAppBar(),
       resizeToAvoidBottomInset: !widget.useSearchAppBar,
       body: SafeArea(
         bottom: true,
